@@ -6,15 +6,15 @@ name: auto_Reserve
 # or API.
 on:
   schedule:
-    - cron: "59 21 * * 0,1,2,3,4" # 周一到周五每天早上5:59启动（防止github action过于高负载）
+    - cron: "59 21 * * *" # 周一到周五每天早上5:59启动（防止github action过于高负载）
   workflow_dispatch:
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-  
+
       - name: Set up Python 3.11
         uses: actions/setup-python@v2
         with:
